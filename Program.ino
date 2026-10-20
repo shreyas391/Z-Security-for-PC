@@ -3,7 +3,8 @@
 
 #define SS_PIN 10
 #define RST_PIN 9
-#define SHORT 8 // Base OUTPUT pin
+#define SHORT 8
+// Base OUTPUT pin
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
@@ -15,7 +16,7 @@ void setup() {
   SPI.begin();
   mfrc522.PCD_Init();
   pinMode(SHORT, OUTPUT);
-  Serial.println(F("System ready. Place the key."));
+  Serial.println(F("System ready. Place the key.")); // For Diagnostics
 }
 
 void loop() {
@@ -36,16 +37,16 @@ void loop() {
   // Remove the first space for correct comparison, if it exists
   String currentKey = content.substring(1);
   Serial.print("Key read: ");
-  Serial.println(currentKey);
+  Serial.println(currentKey); // Tapped mfrc's UID
 
   if (currentKey == validKey) {
-    Serial.println("Access granted!"); // Even though you cannot see the prited statement when PC is OFF, It helps while testing the code.
-    digitalWrite(SHORT, HIGH);
-    delay(500); // 0.5 sec delay 
-    digitalWrite(SHORT, LOW);
+    Serial.println("Access granted!"); // Even though you cannot see the prited statement when PC is OFF, It helps while testing.
+    digitalWrite(SHORT, HIGH); // Give input signal to pin 8 for 0.5 sec
+    delay(500);
+    digitalWrite(SHORT, LOW); // input signal OFF after 0.5 sec
   } 
   
   else {
-    Serial.println("Access denied!");
+    Serial.println("Access denied!"); // For Diagnostics
   }
 }
