@@ -7,3 +7,9 @@ OBJECTIVE:
   - When we tap the authorized MFRC card to the reader, The PC Turns ON.
   - Without the authorized card, The PC won't Turn ON.
   - By implementing this project, We provide advance security for our PC.
+
+COMPONENTS USED:
+ - Arduino Nano
+ - MFRC522 reader
+ - MFRC522 writer
+ - Jumper wires
