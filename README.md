@@ -8,6 +8,8 @@ OBJECTIVE:
   - Without the authorized card, The PC won't Turn ON.
   - By implementing this project, We provide advance security for our PC.
 
+    
+
 COMPONENTS USED:
  - Arduino Nano
  - MFRC522 reader
